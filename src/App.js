@@ -1,7 +1,16 @@
 import React from 'react'
 
+import Mainpage from './components/Mainpage'
+import Aboutpage from './components/Aboutpage'
+
 function App() {
-  return <h1>Hello World</h1>
+  return (
+    <div>
+      <Mainpage />
+      <Aboutpage />
+    </div>
+    
+  )
 }
 
 export default App
