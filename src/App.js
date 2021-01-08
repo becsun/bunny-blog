@@ -1,14 +1,21 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route  } from 'react-router-dom'
 
-import Mainpage from './components/Mainpage'
+
+import Homepage from './components/Homepage'
+import Navbar from './components/Navbar'
 import Aboutpage from './components/Aboutpage'
 
-function App() {
+
+const App = () => {
   return (
-    <div>
-      <Mainpage />
-      <Aboutpage />
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Homepage}  />
+        <Route path="/Aboutpage" component={Aboutpage} />
+      </Switch>
+    </BrowserRouter>
     
   )
 }
