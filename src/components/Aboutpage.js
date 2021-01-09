@@ -1,10 +1,10 @@
 import React from 'react'
 
 class Aboutpage extends React.Component {
-  render () {
+  render() {
 
     return (
-      <h1>Hello world 2</h1>
+      <p>Hello world 3</p>
     )
   }
 }

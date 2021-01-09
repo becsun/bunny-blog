@@ -4,7 +4,12 @@ class Homepage extends React.Component {
   render(){
     
     return (
-      <h1>hello World</h1>
+      <div className="row">
+
+        <img src="https://res.cloudinary.com/do68wjft3/image/upload/v1610125886/thumper-homepage_stirnl.jpg" />
+        
+      </div>
+      
     )
   }
 }
