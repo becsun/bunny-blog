@@ -6,6 +6,7 @@ class BunnyGame extends React.Component {
     bunnyChoice: '', 
     playerChoice: '',
     result: '',
+    bunnKaleVideo: false,
   }
 
   
@@ -15,6 +16,7 @@ class BunnyGame extends React.Component {
     const playerChoice = event.target.value
     const bunnyChoice = choices[Math.floor(Math.random() * choices.length)]
     const result = this.results(playerChoice,bunnyChoice)
+
     this.setState({
       bunnyChoice,
       playerChoice,
@@ -28,8 +30,11 @@ class BunnyGame extends React.Component {
   }
 
   results = (playerChoice, bunnyChoice) => {
-    if (playerChoice === bunnyChoice) return 'bingo'
-    else {
+    if (playerChoice === bunnyChoice) { 
+      return <video id="background-video" loop autoPlay> <source src="https://res.cloudinary.com/do68wjft3/video/upload/v1610228689/IMG_2281_lihwoh.mp4" type="video/mp4" /> 
+    Your browser does not support the video tag.
+      </video> 
+    } else {
       return 'nice try'
     }
   }
@@ -40,10 +45,13 @@ class BunnyGame extends React.Component {
     
     return ( 
       <>
-        <p>bunnyChoice: {this.state.bunnyChoice} </p>
-        <p>playerChoice: {this.state.playerChoice} </p>
+        <p> {this.state.bunnyChoice} </p>
+        <p>{this.state.playerChoice} </p>
         <p>result: {this.state.result}</p>
-
+        {/* <video id="background-video" loop autoPlay>
+          <source src="https://res.cloudinary.com/do68wjft3/video/upload/v1610228689/IMG_2281_lihwoh.mp4" type="video/mp4" /> 
+    Your browser does not support the video tag.
+        </video> */}
         <button onClick={this.playGame} 
           value ="Kale" 
           className="waves-effect waves-light btn"><i className="material-icons right">cloud</i>Kale</button>
