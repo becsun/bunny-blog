@@ -30,9 +30,31 @@ class BunnyGame extends React.Component {
   }
 
   results = (playerChoice, bunnyChoice) => {
-    if (playerChoice === bunnyChoice) { 
-      return <video id="background-video" loop autoPlay> <source src="https://res.cloudinary.com/do68wjft3/video/upload/v1610228689/IMG_2281_lihwoh.mp4" type="video/mp4" /> 
-    Your browser does not support the video tag.
+    
+    if (playerChoice === 'Kale' && bunnyChoice === 'Kale') { 
+      return <video id="background-video" loop autoPlay> 
+        <source src="https://res.cloudinary.com/do68wjft3/video/upload/v1610316906/IMG_1826_xdmaqf.mp4" 
+          type="video/mp4" /> 
+      </video> 
+    } if (playerChoice === 'Peppers' && bunnyChoice === 'Peppers') { 
+      return <video id="background-video" loop autoPlay> 
+        <source src="https://res.cloudinary.com/do68wjft3/video/upload/v1610228689/IMG_2281_lihwoh.mp4" 
+          type="video/mp4" /> 
+      </video> 
+    } if (playerChoice === 'Celery' && bunnyChoice === 'Celery') { 
+      return <video id="background-video" loop autoPlay> 
+        <source src="https://res.cloudinary.com/do68wjft3/video/upload/v1610316897/IMG_2223_hzp6tm.mp4" 
+          type="video/mp4" /> 
+      </video> 
+    } if (playerChoice === 'Pellets' && bunnyChoice === 'Pellets') { 
+      return <video id="background-video" loop autoPlay> 
+        <source src="https://res.cloudinary.com/do68wjft3/video/upload/v1610317798/IMG_2277_ik414h.mp4" 
+          type="video/mp4" /> 
+      </video> 
+    } if (playerChoice === 'Parsley' && bunnyChoice === 'Parsley') { 
+      return <video id="background-video" loop autoPlay> 
+        <source src="https://res.cloudinary.com/do68wjft3/video/upload/v1610228689/IMG_2281_lihwoh.mp4" 
+          type="video/mp4" /> 
       </video> 
     } else {
       return 'nice try'
@@ -48,10 +70,6 @@ class BunnyGame extends React.Component {
         <p> {this.state.bunnyChoice} </p>
         <p>{this.state.playerChoice} </p>
         <p>result: {this.state.result}</p>
-        {/* <video id="background-video" loop autoPlay>
-          <source src="https://res.cloudinary.com/do68wjft3/video/upload/v1610228689/IMG_2281_lihwoh.mp4" type="video/mp4" /> 
-    Your browser does not support the video tag.
-        </video> */}
         <button onClick={this.playGame} 
           value ="Kale" 
           className="waves-effect waves-light btn"><i className="material-icons right">cloud</i>Kale</button>
