@@ -14,6 +14,7 @@ class Navbar extends React.Component {
               <Link to="/bunnygame" className="left hide-on-med-and-down">Bunny Game</Link>
               <Link to="/products" className="left hide-on-med-and-down">Products</Link>
               <Link to="/register" className="left hide-on-med-and-down">Register</Link>
+              <Link to="/login" className="left hide-on-med-and-down">Login</Link>
             </ul>
           </div>
         </nav>

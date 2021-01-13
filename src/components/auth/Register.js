@@ -30,7 +30,7 @@ class Register extends React.Component {
       <div className="row">
         <form onSubmit={this.handleSubmit} className="col s12">
           <div className="row">
-            <div className="input-field col s12">
+            <  div className="input-field col s12">
               <input onChange={this.handleChange} 
                 placeholder="Username" 
                 id="user_name" 
