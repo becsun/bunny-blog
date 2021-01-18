@@ -20,6 +20,7 @@ class Register extends React.Component {
     event.preventDefault()
     try {
       await registerUser(this.state.formData)
+      this.props.history.push('./login')
     } catch (err){
       console.log(err.response.data)
     }

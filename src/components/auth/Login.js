@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { loginUser } from '../lib/api'
+
 class Login extends React.Component {
     state = {
       formData: {
@@ -13,9 +15,14 @@ class Login extends React.Component {
       this.setState({ formData: newFormData })
     }
 
-    handleSubmit = event => {
-      event.preventBefault()
-      console.log('submit the form now', this.state.formData)
+    handleSubmit = async event => {
+      event.preventDefault()
+      try {
+        const res = await loginUser(this.state.formData)
+        console.log(res.data.token)
+      } catch (err){
+        console.log(err.response.data)
+      }
     }
 
     render(){

@@ -36,7 +36,8 @@ class BunnyGame extends React.Component {
 
     const number = Math.floor(Math.random() * randomImage.length)
 
-    console.log(randomImage[number])
+    console.log(number
+    )
 
 
     if (playerChoice === 'Kale' && bunnyChoice === 'Kale') { 
@@ -78,7 +79,7 @@ class BunnyGame extends React.Component {
         {/* <p> {this.state.bunnyChoice} </p>
         <p>{this.state.playerChoice} </p> */}
         <h1>What is Thumper in the mood for?</h1>
-        <button variant="contained" className="waves-effect waves-light btn" onClick={this.playGame} 
+        <button variant="contained" className="waves-effect waves-light btn-large" onClick={this.playGame} 
           value ="Kale" 
         ><i className="material-icons right">cloud</i>Kale</button>
         <button onClick={this.playGame} 
