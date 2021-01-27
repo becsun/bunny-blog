@@ -5,6 +5,7 @@ const bunnySchema = new mongoose.Schema({
   lifeSpan: { type: Number, required: true },
   origin: { type: String, required: true },
   weight: { type: Number, required: true },
+  furType: { type: String, required: true },
   image: { type: String, required: true },
 })
 

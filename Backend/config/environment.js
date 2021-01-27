@@ -1,7 +1,6 @@
-const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/bunny-blog'
+const dbURI = 'mongodb://localhost:27017/bunny-blog'
 
 
 module.exports = {
   dbURI,
-
 }

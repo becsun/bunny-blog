@@ -1,8 +1,9 @@
 const express = require('express')
-const logger = require('./lib/logger')
 const app = express()
-const router = require('./config/router')
 const mongoose = require('mongoose')
+const logger = require('./lib/logger')
+const router = require('./config/router')
+
 const { dbURI } = require('./config/environment')
 const port = process.env.PORT || 8000
 
@@ -17,8 +18,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true , useC
   }
 )
 app.use(express.json())
+app.use(logger)
 app.use(router)
 
-app.use(logger)
+
 
 app.listen(port, () => console.log(`Up and running on port ${port}`))
