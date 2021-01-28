@@ -8,6 +8,7 @@ import Products from './components/Products'
 import BunnyGame from './components/Bunnygame'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+// import BunnyBreeds from './components/BunnyBreeds'
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/about" component={Aboutpage} />
         <Route path="/products" component={Products} />
         <Route path="/bunnygame" component={BunnyGame} />
+        {/* <Route path="/bunnies" component={BunnyBreeds} /> */}
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
       </Switch>

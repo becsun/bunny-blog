@@ -1,4 +1,3 @@
-const bunny = require('../models/bunny')
 const Bunny = require('../models/bunny')
 
 async function bunnyIndex (req, res, next){
