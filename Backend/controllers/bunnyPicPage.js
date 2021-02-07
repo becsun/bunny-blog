@@ -41,13 +41,14 @@ async function bunnyDelete (req, res) {
 }
 
 async function bunnyPicCommentCreate(req, res){
+  console.log(req.params.id)
   try {
-    const bunny = await bunny.find(req.params.id)
+    const bunnyPic = await BunnyPic.findById(req.params.id)
     const commentBody = req.body
     commentBody.user = req.currentUser._id 
-    bunny.comments.push(commentBody)
-    await bunny.save()
-    res.status(201).json(bunny)
+    bunnyPic.comments.push(commentBody)
+    await bunnyPic.save() 
+    res.status(201).json(bunnyPic)
   } catch (err){
     res.status(400).json(err)
   }

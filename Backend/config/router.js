@@ -25,4 +25,7 @@ router.route('/bunnycommunity/:id')
   .get(bunnyPic.show)
   .delete(secureRoute,bunnyPic.delete)
 
+router.route('/bunnycommunity/:id/comments')
+  .post(secureRoute,bunnyPic.commentCreate)
+
 module.exports = router
