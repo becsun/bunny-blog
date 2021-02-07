@@ -20,18 +20,9 @@ async function bunnyShow (req, res) {
   }
 }
 
-async function bunnyCreate(req, res, next) {
-  try {
-    const createdBunny = await Bunny.create(req.body)
-    if (!createdBunny) throw new Error()
-    res.status(201).json(createdBunny)
-  } catch (err) {
-    next(err)
-  }
-}
+
   
 module.exports = {
   index: bunnyIndex,
-  create: bunnyCreate,
   show: bunnyShow,
 }
