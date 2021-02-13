@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const logger = require('./lib/logger')
 const router = require('./config/router')
+const errorHandler = require('./lib/errorHandler')
+const logger = require('./lib/logger')
+
+
 
 const { dbURI } = require('./config/environment')
 const port = process.env.PORT || 8000
@@ -20,6 +23,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true , useC
 app.use(express.json())
 app.use(logger)
 app.use(router)
+app.use(errorHandler)
 
 
 

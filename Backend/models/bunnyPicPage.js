@@ -16,5 +16,6 @@ const bunnyPicPageSchema = new mongoose.Schema({
   timestamps: true,
 })
 
+bunnyPicPageSchema.plugin(require('mongoose-unique-validator'))
 
 module.exports = mongoose.model('BunnyPic', bunnyPicPageSchema) 
