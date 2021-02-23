@@ -22,7 +22,7 @@ class Register extends React.Component {
       await registerUser(this.state.formData)
       this.props.history.push('./login')
     } catch (err){
-      console.log(err.response.data)
+      console.log(err.response.data.errors)
     }
   }
   

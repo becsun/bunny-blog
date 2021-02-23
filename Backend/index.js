@@ -20,9 +20,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true , useC
     console.log('Mongo is Connected here')
   }
 )
+
 app.use(express.json())
 app.use(logger)
-app.use(router)
+app.use('/api', router)
 app.use(errorHandler)
 
 
