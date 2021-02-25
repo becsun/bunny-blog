@@ -10,8 +10,8 @@ import Typography from '@material-ui/core/Typography'
 
 const BunnyBreedCard = ({ name, lifeSpan, origin, weight, furType, image, _id }) => (
   <div>
-    <Link to={`/cheeses/${_id}`}>
-      <Card>
+    <Link to={`/bunnies/${_id}`}>
+      <Card width="200">
         <CardActionArea>
           <CardMedia
             component="img"
@@ -28,8 +28,7 @@ const BunnyBreedCard = ({ name, lifeSpan, origin, weight, furType, image, _id })
               {lifeSpan}
               {origin}
               {weight}
-              {furType}
-              
+              {furType}  
             </Typography>
           </CardContent>
         </CardActionArea>

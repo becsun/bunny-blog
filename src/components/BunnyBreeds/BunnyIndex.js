@@ -1,11 +1,11 @@
-// import axios from 'axios'
 import React from 'react'
-import BunnyBreedCard from './BunnyBreeds/BunnyBreedCard'
-import { getAllBunnies } from './lib/api'
+
+import { getAllBunnies } from '../lib/api'
+import BunnyBreedCard from './BunnyBreedCard'
 
 
 
-class BunnyBreeds extends React.Component {
+class BunnyIndex extends React.Component {
   state={
     bunnies: [],
   }
@@ -15,7 +15,7 @@ class BunnyBreeds extends React.Component {
       const res = await getAllBunnies()
       this.setState({ bunnies: res.data })
     } catch (err) {
-      console.log(err)
+      this.props.history.push('/notfound')
     }
   }
   
@@ -36,4 +36,4 @@ class BunnyBreeds extends React.Component {
     )
   }
 }
-export default BunnyBreeds
+export default BunnyIndex

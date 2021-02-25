@@ -13,3 +13,7 @@ export const loginUser = formData => {
 export const getAllBunnies = () => {
   return axios.get(`${baseUrl}/bunnies`)
 } 
+
+export const getSingleBunny = id => {
+  return axios.get(`${baseUrl}/bunnies/${id}`)
+}
