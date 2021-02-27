@@ -8,9 +8,9 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
-const BunnyBreedCard = ({ name, lifeSpan, origin, weight, furType, image, _id }) => (
+const BunnyCommunityCard = ({ name, image, _id }) => (
   <div>
-    <Link to={`/bunnies/${_id}`}>
+    <Link to={`/bunnycommunity/${_id}`}>
       <Card width="200">
         <CardActionArea>
           <CardMedia
@@ -25,10 +25,7 @@ const BunnyBreedCard = ({ name, lifeSpan, origin, weight, furType, image, _id })
               {name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              {lifeSpan}
-              {origin}
-              {weight}
-              {furType}  
+          
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -45,4 +42,4 @@ const BunnyBreedCard = ({ name, lifeSpan, origin, weight, furType, image, _id })
   </div>
 )
   
-export default BunnyBreedCard
+export default BunnyCommunityCard

@@ -13,7 +13,7 @@ class Navbar extends React.Component {
               <Link to="/about" className="left hide-on-med-and-down">About</Link>
               <Link to="/bunnies" className="left hide-on-med-and-down">Bunny Breed</Link>
               <Link to="/bunnygame" className="left hide-on-med-and-down">Bunny Game</Link>
-              <Link to="/products" className="left hide-on-med-and-down">Products</Link>
+              <Link to="/bunnycommunity" className="left hide-on-med-and-down">Bunny Community</Link>
               <Link to="/register" className="left hide-on-med-and-down">Register</Link>
               <Link to="/login" className="left hide-on-med-and-down">Login</Link>
             </ul>

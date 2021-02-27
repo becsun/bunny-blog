@@ -17,3 +17,11 @@ export const getAllBunnies = () => {
 export const getSingleBunny = id => {
   return axios.get(`${baseUrl}/bunnies/${id}`)
 }
+
+export const getAllBunnyPics = () => {
+  return axios.get(`${baseUrl}/bunnycommunity`)
+}
+
+export const getSingleBunnyPic = id => {
+  return axios.get(`${baseUrl}/bunnycommunity/${id}`)
+}
