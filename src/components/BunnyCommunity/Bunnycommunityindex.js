@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAllBunnyPics } from '../lib/api'
-import BunnyCommunityCard from './bunnycommunitycard'
+import BunnyCommunityCard from './Bunnycommunitycard'
 
 
 class BunnyCommunityIndex extends React.Component {
@@ -17,6 +17,7 @@ class BunnyCommunityIndex extends React.Component {
       }
     }
     render(){
+      if (!this.state.bunnyPics) return null
       console.log('I have rendered', this.state.bunnyPics)
 
       return (

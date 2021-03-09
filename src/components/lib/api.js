@@ -3,7 +3,7 @@ import axios from 'axios'
 const baseUrl = '/api'
 
 export const registerUser = formData => {
-  return axios.post('http://localhost:8000/register', formData)
+  return axios.post(`${baseUrl}/register`, formData)
 }
 
 export const loginUser = formData => {

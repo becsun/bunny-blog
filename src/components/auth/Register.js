@@ -9,6 +9,7 @@ class Register extends React.Component {
       password: '',
       passwordConfirmation: '',
     },
+    errors: {}, 
   }
 
   handleChange = event => {
@@ -22,11 +23,12 @@ class Register extends React.Component {
       await registerUser(this.state.formData)
       this.props.history.push('./login')
     } catch (err){
-      console.log(err.response.data.errors)
+      this.setState({ errors: err.response.data.errors })
     }
   }
   
   render() {
+    // console.log(this.state)
     return (
       <div className="row">
         <form onSubmit={this.handleSubmit} className="col s12">
@@ -39,8 +41,10 @@ class Register extends React.Component {
                 name="username"
                 value={this.state.formData.username}
                 className="validate" />
-              <label htmlFor="user_name">Username</label>
+              <label htmlFor="username">Username</label>
             </div>
+            {this.state.errors.username && <label>hi</label> }
+
             <div className="row">
               <div className="input-field col s12">
                 <input onChange={this.handleChange}
