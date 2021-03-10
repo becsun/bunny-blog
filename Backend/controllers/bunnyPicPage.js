@@ -22,22 +22,22 @@ async function bunnyPicCreate(req, res, next) {
   }
 }
 
-async function bunnyPicShow (req, res, next) {
+async function bunnyPicShow (req, res) {
   try {
     const bunnyPic = await BunnyPic.findById(req.params.id).populate('user').populate('comments.user')
     if (!bunnyPic) throw new Error(notFound)
     res.status(200).json(bunnyPic)
   } catch (err){
-    next(err)
+    res.json(err)
   }
 }
-async function bunnyDelete (req, res, next) {
+async function bunnyDelete (req, res) {
   try {
     const bunnyPic = await BunnyPic.findByIdAndDelete(req.params.id)
     if (!bunnyPic) throw new Error(notFound)
     res.sendStatus(204)
   } catch (err) {
-    next(err)
+    res.json(err)
   }
 }
 

@@ -7,7 +7,7 @@ export const registerUser = formData => {
 }
 
 export const loginUser = formData => {
-  return axios.post('http://localhost:8000/login', formData)
+  return axios.post(`${baseUrl}/login`, formData)
 }
 
 export const getAllBunnies = () => {

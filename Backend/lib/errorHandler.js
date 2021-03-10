@@ -1,7 +1,7 @@
-const { notFound, unauthorized, validationError, CastError } = require('./errorMessage')
+const {  ValidationError, notFound, unauthorized, CastError } = require('./errorMessage')
 
 function errorHandler(err, req, res, next) {
-  if (err.name === { validationError }) {
+  if (err.name === ValidationError) {
     
     const customErrors = {}
 

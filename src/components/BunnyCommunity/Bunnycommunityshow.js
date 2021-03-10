@@ -24,6 +24,8 @@ class BunnyCommunityShow extends React.Component {
         this.props.history.push('/notfound')
       }
     }
+
+    
   
 
     render(){

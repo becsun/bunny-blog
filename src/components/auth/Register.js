@@ -1,6 +1,8 @@
 import React from 'react'
 import { registerUser } from '../lib/api'
 
+import { Alert } from '@material-ui/lab'
+
 class Register extends React.Component {
   state = {
     formData: {
@@ -13,8 +15,8 @@ class Register extends React.Component {
   }
 
   handleChange = event => {
-    const newFormData = { ...this.state.formData, [event.target.name]: event.target.value }
-    this.setState({ formData: newFormData })
+    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
+    this.setState({ formData })
   }
 
   handleSubmit = async event => {
@@ -23,12 +25,15 @@ class Register extends React.Component {
       await registerUser(this.state.formData)
       this.props.history.push('./login')
     } catch (err){
+      console.log(this.state)
+      console.log(err)
       this.setState({ errors: err.response.data.errors })
     }
   }
   
   render() {
-    // console.log(this.state)
+    console.log(this.state)
+    console.log(this.state.errors)
     return (
       <div className="row">
         <form onSubmit={this.handleSubmit} className="col s12">
@@ -42,9 +47,9 @@ class Register extends React.Component {
                 value={this.state.formData.username}
                 className="validate" />
               <label htmlFor="username">Username</label>
-            </div>
-            {this.state.errors.username && <label>hi</label> }
+              {this.state.errors.username && <Alert severity="error">Error — Username is Needed</Alert>}
 
+            </div>
             <div className="row">
               <div className="input-field col s12">
                 <input onChange={this.handleChange}
@@ -54,6 +59,8 @@ class Register extends React.Component {
                   value={this.state.formData.email}
                   className="validate" />
                 <label htmlFor="email">Email</label>
+                {this.state.errors.email && <Alert severity="error">Error — Email is Needed</Alert>}
+
               </div>
             </div>
             <div className="row">
@@ -65,6 +72,8 @@ class Register extends React.Component {
                   value={this.state.formData.password}
                   className="validate" />
                 <label htmlFor="password">Password</label>
+                {this.state.errors.password && <Alert severity="error">Error — Password is Needed</Alert>}
+
               </div>
             </div>
             <div className="row">
@@ -76,6 +85,8 @@ class Register extends React.Component {
                   value={this.state.formData.passwordConfirmation}
                   className="validate" />
                 <label htmlFor="password_confirmation">Password Confirmation</label>
+                {this.state.errors.password && <Alert severity="error">Error — Password Needed</Alert>}
+
               </div>
             </div>
             <button className="btn waves-effect waves-light" 

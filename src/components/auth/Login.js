@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { loginUser } from '../lib/api'
+import { Alert } from '@material-ui/lab'
 
 class Login extends React.Component {
     state = {
@@ -8,11 +9,12 @@ class Login extends React.Component {
         email: '',
         password: '',
       },
+      error: false,
     }
 
     handleChange = event => {
       const newFormData = { ...this.state.formData, [event.target.name]: event.target.value }
-      this.setState({ formData: newFormData })
+      this.setState({ formData: newFormData, error: false })
     }
 
     handleSubmit = async event => {
@@ -22,10 +24,14 @@ class Login extends React.Component {
         console.log(res.data.token)
       } catch (err){
         console.log(err.response.data)
+        this.setState({ error: true })
+
       }
     }
 
     render(){
+      console.log(this.state.error)
+
       console.log(this.state.formData)
       return (
         <div className="row">
@@ -53,6 +59,7 @@ class Login extends React.Component {
                   className="validate" />
                 <label htmlFor="password">Password</label>
               </div>
+              {this.state.error && <Alert severity="error">Sorry —Incorrect Username or Password </Alert>}
             </div>
             <button className="btn waves-effect waves-light" 
               type="submit" 
