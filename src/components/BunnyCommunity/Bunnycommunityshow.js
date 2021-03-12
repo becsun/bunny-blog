@@ -1,5 +1,5 @@
 import React from 'react'
-import { getSingleBunnyPic } from '../lib/api'
+import { getSingleBunnyPic, deleteBunnyPic } from '../lib/api'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardActions from '@material-ui/core/CardActions'
@@ -25,7 +25,15 @@ class BunnyCommunityShow extends React.Component {
       }
     }
 
-    
+    handleDelete = async () => {
+      const bunnyPicID = this.props.match.params.id
+      try {
+        await deleteBunnyPic(bunnyPicID)
+        this.props.history.push('/bunnycommunity')
+      } catch (err) {
+        console.log(err.response.data)
+      }
+    }
   
 
     render(){
