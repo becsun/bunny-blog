@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button } from '@material-ui/core'
-import { createBunnyPic } from '../lib/api'
+// import { createBunnyPic } from '../lib/api'
 
 function BunnyCommunityNew() {
   const bunnyPic = {
@@ -16,21 +16,16 @@ function BunnyCommunityNew() {
   }
   const [state, setState] = React.useState(bunnyPic)
 
-  const handleChange = e => {
-    const formData = { ...state.formData, [e.target.name]: e.target.value }
-    const errors = { ...state.errors, [e.target.name]: '' }
+  const handleChange = event => {
+    const formData = { ...state.formData, [event.target.name]: event.target.value }
+    const errors = { ...state.errors, [event.target.name]: '' }
     setState({ formData, errors })
   }
 
-  const handleSubmit = async event => {
-    event.prevenyDefault()
-    try {
-      const res = await createBunnyPic( state.formData)
-
-      console.log(res)
-    } catch (err) {
-      console.log(err.response.data)
-    }
+  const handleSubmit = event => {
+    event.preventDefault()
+    console.log('hi')
+    console.log('submit my form', state.formData )
   }
 
   const useStyles = makeStyles((theme) => ({
@@ -44,8 +39,11 @@ function BunnyCommunityNew() {
   console.log('state', state.formData)
 
   return (
+    
     <div className={classes.margin}>
-      <form onSubmit={handleSubmit}>
+      <form 
+        onClick={handleSubmit}
+        noValidate>
         <Grid
           container
           direction="column"
@@ -55,16 +53,19 @@ function BunnyCommunityNew() {
           <TextField
             id="input-with-icon-grid"
             label="Bunny Name"
+            required
             onChange={handleChange}
             name="name"
             value={state.name} />
           <TextField
             id="input-with-icon-grid"
             label="Image Url"
+            required
             name="image"
             onChange={handleChange}
             value={state.image} />
           <Button
+            type="submit"
             variant="contained"
             color="primary"
             component="span"
@@ -72,8 +73,10 @@ function BunnyCommunityNew() {
             Upload
           </Button>
         </Grid>
-      </form>   
+      </form>  
     </div>
+ 
+    
   )
 
 
