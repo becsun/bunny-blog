@@ -2,6 +2,7 @@ import React from 'react'
 
 import { loginUser } from '../lib/api'
 import { Alert } from '@material-ui/lab'
+import { setToken } from '../lib/auth'
 
 class Login extends React.Component {
     state = {
@@ -21,7 +22,9 @@ class Login extends React.Component {
       event.preventDefault()
       try {
         const res = await loginUser(this.state.formData)
-        console.log(res.data.token)
+        setToken(res.data.token)
+        this.props.history.push('/')
+        console.log(res.data)
       } catch (err){
         console.log(err.response.data)
         this.setState({ error: true })
