@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button } from '@material-ui/core'
-// import { createBunnyPic } from '../lib/api'
+import { createBunnyPic } from '../lib/api'
 
 function BunnyCommunityNew() {
   const bunnyPic = {
@@ -22,10 +22,16 @@ function BunnyCommunityNew() {
     setState({ formData, errors })
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault()
-    console.log('hi')
-    console.log('submit my form', state.formData )
+    console.log( state.formData)
+    try {
+      const res = await createBunnyPic(state.formData)
+      console.log(res.data)
+    } catch (err){
+      console.log('hi')
+      console.log(err.response.data)
+    }
   }
 
   const useStyles = makeStyles((theme) => ({
@@ -75,11 +81,8 @@ function BunnyCommunityNew() {
         </Grid>
       </form>  
     </div>
- 
     
   )
-
-
 }
 
 export default BunnyCommunityNew

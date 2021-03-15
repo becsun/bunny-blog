@@ -11,13 +11,7 @@ const withHeaders = () => {
   }
 }
 
-export const registerUser = formData => {
-  return axios.post(`${baseUrl}/register`, formData)
-}
 
-export const loginUser = formData => {
-  return axios.post(`${baseUrl}/login`, formData)
-}
 
 export const getAllBunnies = () => {
   return axios.get(`${baseUrl}/bunnies`)
@@ -27,7 +21,9 @@ export const getSingleBunny = id => {
   return axios.get(`${baseUrl}/bunnies/${id}`)
 }
 
-export const createBunnyPic = formData => {
+
+// bunny community
+export const createBunnyPic = (formData) => {
   return axios.post(`${baseUrl}/bunnycommunity`, formData, withHeaders())
 }
 
@@ -41,4 +37,14 @@ export const getSingleBunnyPic = id => {
 
 export const deleteBunnyPic = id => {
   return axios.get(`${baseUrl}/bunnycommunity/${id}`)
+}
+
+//Auth Requests
+
+export const registerUser = formData => {
+  return axios.post(`${baseUrl}/register`, formData)
+}
+
+export const loginUser = formData => {
+  return axios.post(`${baseUrl}/login`, formData)
 }

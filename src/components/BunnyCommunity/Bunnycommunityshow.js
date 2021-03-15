@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { getSingleBunnyPic, deleteBunnyPic } from '../lib/api'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
