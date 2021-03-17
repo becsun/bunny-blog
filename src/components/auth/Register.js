@@ -16,7 +16,8 @@ class Register extends React.Component {
 
   handleChange = event => {
     const formData = { ...this.state.formData, [event.target.name]: event.target.value }
-    this.setState({ formData })
+    const errors = { ...this.state.errors, [event.target.name]: '' }
+    this.setState({ formData, errors })
   }
 
   handleSubmit = async event => {
