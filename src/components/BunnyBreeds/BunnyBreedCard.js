@@ -1,48 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Card from '@material-ui/core/Card'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
+import ImageListItemBar from '@material-ui/core/ImageListItemBar'
+import IconButton from '@material-ui/core/IconButton'
+import InfoIcon from '@material-ui/icons/Info'
+// import ImageList from '@material-ui/core/ImageList'
+import ImageListItem from '@material-ui/core/ImageListItem'
+// import ListSubheader from '@material-ui/core/ListSubheader'
 
-const BunnyBreedCard = ({ name, lifeSpan, origin, weight, furType, image, _id }) => (
-  <div>
-    <Link to={`/bunnies/${_id}`}>
-      <Card width="200">
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt={name}
-            height="160"
-            image={image} class="materialboxed"
-            title="Contemplative Reptile"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {name}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {lifeSpan}
-              {origin}
-              {weight}
-              {furType}  
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions>
-      </Card>
+
+
+export default function BunnyBreedCard({ image, name, origin,lifespan }) {
+  return (
+    <Link to={'/bunnies'}>
+      <ImageListItem>
+        <img
+          srcSet={`${image}?w=248&fit=crop&auto=format 1x,
+                ${image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+          alt={name}
+          loading="lazy"
+        />
+        <ImageListItemBar
+          title={name}
+          subtitle={origin}
+          actionIcon={
+            <IconButton
+              sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+              aria-label={`info about ${lifespan}`}
+            >
+              <InfoIcon />
+            </IconButton>
+          }
+        />
+      </ImageListItem>
+      {/* </ImageList> */}
     </Link>
-  </div>
-)
-  
-export default BunnyBreedCard
+  )
+}
+
