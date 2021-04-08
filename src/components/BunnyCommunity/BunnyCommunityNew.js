@@ -27,10 +27,11 @@ function BunnyCommunityNew() {
     console.log( state.formData)
     try {
       const res = await createBunnyPic(state.formData)
+      // this.props.history.push(`/bunnycommunity/${res.data_id}`)
       console.log(res.data)
     } catch (err){
       console.log('hi')
-      console.log(err.response.data)
+      // console.log(err.response.data)
     }
   }
 
